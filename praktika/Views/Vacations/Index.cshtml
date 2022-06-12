@@ -1,0 +1,61 @@
+﻿@model IEnumerable<praktika.Models.Vacation>
+
+@{
+    ViewData["Title"] = "Отпуска";
+}
+
+<h1 text align="center">Отпуска</h1><br/>
+
+<p>
+    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить сотрудника" >+</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdWorker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataVacationReal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VacationCountReal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClassificationVacation)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.IdApplicationNavigation)*@
+                <p><b>Номер заявки</b></p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWorker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataVacationReal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationCountReal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClassificationVacation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdApplicationNavigation.IdApplication)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdVacation">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.IdVacation">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdVacation">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

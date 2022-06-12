@@ -1,8 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Practice.Models.Worker>
+@{
+    ViewBag.Title = "Все сотрудники";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+<a asp-action="Create">Добавить сотрудника</a>
+<table class="table">
+    <tr><td>Имя</td><td>Фамилия</td><td>Отчество</td><td>Табельный номер</td><td>Должность</td><td>Отдел</td>
+        <td>email</td><td>Номер телефона</td><td>Дата приема на работу</td><td>Пол</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Name</td><td>@item.Surname</td><td>@item.Patronymic</td><td>@item.ServiceNumber</td><td>@item.Post</td>
+            <td>@item.Department</td><td>@item.Email</td><td>@item.Phone</td><td>@item.DateHiring</td><td>@item.Gender</td></tr>
+    }
+</table>

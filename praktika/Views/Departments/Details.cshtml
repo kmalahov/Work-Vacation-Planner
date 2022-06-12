@@ -1,0 +1,37 @@
+﻿@model List<Worker>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Название отдела:
+        </dt>
+        @using(course_workContext _context = new course_workContext())
+        {
+            <dd class = "col-sm-10">
+            @_context.Departments.Where(x => x.IdDepartment == Model.FirstOrDefault().Department).FirstOrDefault().Department1
+        </dd>
+        }        
+    </dl>
+</div> 
+    @using(course_workContext _context = new course_workContext())
+        {
+    List<int?> p = Model.Select(x => x.Post).Distinct().ToList();
+    
+        foreach (var item in p)
+        {
+            <p>@_context.Posts.Where(x => x.IdPost == item).FirstOrDefault().Post1</p>
+        }
+    
+}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

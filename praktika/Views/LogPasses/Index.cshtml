@@ -1,0 +1,55 @@
+﻿@model IEnumerable<praktika.Models.LogPass>
+
+@{
+    ViewData["Title"] = "Пароли";
+}
+
+<h1 text align="center">Пароли</h1><br />
+
+<p>
+    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить пароль для сотрудника" >+</a>
+</p>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Admin)
+            </th>
+            <th scope="col">
+                @*@Html.DisplayNameFor(model => model.IdWorkerNavigation)*@
+                Имя сотрудника
+            </th>
+            <th scope="col">Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWorkerNavigation.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserId">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.UserId">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

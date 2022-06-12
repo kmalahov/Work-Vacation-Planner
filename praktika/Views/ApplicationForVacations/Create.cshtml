@@ -1,0 +1,51 @@
+﻿@model praktika.Models.ApplicationForVacation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ApplicationForVacation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateBeginVacation" class="control-label"></label>
+                <input asp-for="DateBeginVacation" class="form-control" />
+                <span asp-validation-for="DateBeginVacation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VacationCount" class="control-label"></label>
+                <input asp-for="VacationCount" class="form-control" />
+                <span asp-validation-for="VacationCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdWorker" class="control-label"></label>
+                <select asp-for="IdWorker" class ="form-control" asp-items="ViewBag.IdWorker"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusApplication" class="control-label"></label>
+                <input asp-for="StatusApplication" class="form-control" />
+                <span asp-validation-for="StatusApplication" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdClassificationVacation" class="control-label"></label>
+                <select asp-for="IdClassificationVacation" class ="form-control" asp-items="ViewBag.IdClassificationVacation"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,117 @@
+﻿@model IEnumerable<praktika.Models.Worker>
+
+@{
+    ViewData["Title"] = "Список сотрудников";
+}
+<div>
+<h1 align="center">Список сотрудников</h1><br />
+
+<div align="right">
+    <form asp-controller = "Workers" asp-action = "Index" method = "post">
+    <table>
+        <tr>
+            <td>
+                 <input name = "Search" width = 1000/>
+
+            </td>
+            <td>
+                    <input type = "submit" value = "Найти"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</div>
+
+<p>
+    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить сотрудника" >+</a>
+</p>
+
+<table class="table" align="">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Patronymic)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.ServiceNumber)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.DateHiring)
+            </th>@*
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.DepartmentNavigation)
+            </th>*@
+            <th scope="col">
+                Отдел
+            </th>@*
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.GenderNavigation)
+            </th>*@
+            <th scope="col">
+                Пол
+            </th>@*
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.PostNavigation)
+            </th>*@
+            <th scope="col">
+                Должность
+            </th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateHiring)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentNavigation.Department1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenderNavigation.GenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostNavigation.Post1)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdWorker">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.IdWorker">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdWorker">Уволен</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+

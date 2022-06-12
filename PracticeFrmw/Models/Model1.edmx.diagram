@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e50287e53e9540e8b38ff8bd5b735187" Name="Diagram1">
+        <EntityTypeShape EntityType="course_workModel.Application_for_vacation" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.Classification_vacation" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.Department" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.gender" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.log_pass" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.Post" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.Project" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.sysdiagram" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.Vacation" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.Worker" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="course_workModel.Workers_on_project" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="course_workModel.FK_Application_for_vacation_Classification_vacation" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_Application_for_vacation_Workers" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_Vacations_Application_for_vacation" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_Workers_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_Workers_gender" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_log_pass_Workers" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_Workers_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_Workers_on_project_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="course_workModel.FK_Workers_on_project_Workers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

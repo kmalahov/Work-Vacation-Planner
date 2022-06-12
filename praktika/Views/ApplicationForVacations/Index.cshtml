@@ -1,0 +1,52 @@
+﻿@model IEnumerable<praktika.Models.ApplicationForVacation>
+
+@{
+    ViewData["Title"] = "Заявки на отпуск";
+}
+
+<h1 text align="center">Заявки на отпуск</h1><br/>
+
+<p>
+    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить сотрудника" >+</a>
+</p>
+
+    <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">@Html.DisplayNameFor(model => model.DateBeginVacation)</th>
+          <th scope="col">@Html.DisplayNameFor(model => model.VacationCount)</th>
+          <th scope="col">@Html.DisplayNameFor(model => model.StatusApplication)</th>          
+          @*<th scope="col">@Html.DisplayNameFor(model => model.IdClassificationVacationNavigation)</th>*@
+          <th scope="col">Вид отпуска</th>
+          @*<th scope="col">@Html.DisplayNameFor(model => model.IdWorkerNavigation)</th>*@
+          <th scope="col">Имя сотрудника</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>        
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateBeginVacation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusApplication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClassificationVacationNavigation.NameClassification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdWorkerNavigation.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdApplication">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.IdApplication">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdApplication">Удалить</a>
+            </td>
+        </tr>}
+    </tbody>
+    </table>
+    

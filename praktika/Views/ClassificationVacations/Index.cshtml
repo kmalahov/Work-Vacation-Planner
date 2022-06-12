@@ -1,0 +1,53 @@
+﻿@model IEnumerable<praktika.Models.ClassificationVacation>
+
+@{
+    ViewData["Title"] = "Виды отпусков";
+}
+
+<h1 text align="center">Виды отупсков</h1><br/>
+
+<p>
+    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить сотрудника" >+</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeClassification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameClassification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeriodVacation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsageCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeClassification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameClassification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PeriodVacation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsageCount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdClassificationVacation">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdClassificationVacation">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdClassificationVacation">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

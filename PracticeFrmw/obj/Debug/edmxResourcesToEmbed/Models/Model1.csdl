@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="course_workModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Application_for_vacation">
+    <Key>
+      <PropertyRef Name="id_application" />
+    </Key>
+    <Property Name="id_application" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date_begin_vacation" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="vacation_count" Type="Int32" Nullable="false" />
+    <Property Name="id_worker" Type="Int32" Nullable="false" />
+    <Property Name="status_application" Type="Int32" Nullable="false" />
+    <Property Name="id_classification_vacation" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Classification_vacation" Relationship="Self.FK_Application_for_vacation_Classification_vacation" FromRole="Application_for_vacation" ToRole="Classification_vacation" />
+    <NavigationProperty Name="Worker" Relationship="Self.FK_Application_for_vacation_Workers" FromRole="Application_for_vacation" ToRole="Workers" />
+    <NavigationProperty Name="Vacations" Relationship="Self.FK_Vacations_Application_for_vacation" FromRole="Application_for_vacation" ToRole="Vacations" />
+  </EntityType>
+  <EntityType Name="Classification_vacation">
+    <Key>
+      <PropertyRef Name="id_classification_vacation" />
+    </Key>
+    <Property Name="id_classification_vacation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code_classification" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="name_classification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="period_vacation" Type="Int32" Nullable="false" />
+    <Property Name="usage_count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Application_for_vacation" Relationship="Self.FK_Application_for_vacation_Classification_vacation" FromRole="Classification_vacation" ToRole="Application_for_vacation" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="id_department" />
+    </Key>
+    <Property Name="id_department" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Department" FromRole="Department" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="gender">
+    <Key>
+      <PropertyRef Name="id_gender" />
+    </Key>
+    <Property Name="id_gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gender_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_gender" FromRole="gender" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="log_pass">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_worker" Type="Int32" Nullable="false" />
+    <Property Name="admin" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Worker" Relationship="Self.FK_log_pass_Workers" FromRole="log_pass" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="id_post" />
+    </Key>
+    <Property Name="id_post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="post1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Posts" FromRole="Posts" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="id_project" />
+    </Key>
+    <Property Name="id_project" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="project_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="date_project_begin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="date_project_end" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="labor_count" Type="Int32" Nullable="false" />
+    <Property Name="date_project_status" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="project_manager" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Workers_on_project" Relationship="Self.FK_Workers_on_project_Projects" FromRole="Projects" ToRole="Workers_on_project" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Vacation">
+    <Key>
+      <PropertyRef Name="id_vacation" />
+    </Key>
+    <Property Name="id_vacation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_application" Type="Int32" Nullable="false" />
+    <Property Name="id_worker" Type="Int32" Nullable="false" />
+    <Property Name="data_vacation_real" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="vacation_count_real" Type="Int32" Nullable="false" />
+    <Property Name="id_classification_vacation" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Application_for_vacation" Relationship="Self.FK_Vacations_Application_for_vacation" FromRole="Vacations" ToRole="Application_for_vacation" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="id_worker" />
+    </Key>
+    <Property Name="id_worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="surname" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="patronymic" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="service_number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="post" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="phone" Type="Int32" />
+    <Property Name="date_hiring" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="gender" Type="Int32" />
+    <Property Name="department" Type="Int32" />
+    <NavigationProperty Name="Application_for_vacation" Relationship="Self.FK_Application_for_vacation_Workers" FromRole="Workers" ToRole="Application_for_vacation" />
+    <NavigationProperty Name="Department1" Relationship="Self.FK_Workers_Department" FromRole="Workers" ToRole="Department" />
+    <NavigationProperty Name="gender1" Relationship="Self.FK_Workers_gender" FromRole="Workers" ToRole="gender" />
+    <NavigationProperty Name="log_pass" Relationship="Self.FK_log_pass_Workers" FromRole="Workers" ToRole="log_pass" />
+    <NavigationProperty Name="Post1" Relationship="Self.FK_Workers_Posts" FromRole="Workers" ToRole="Posts" />
+    <NavigationProperty Name="Workers_on_project" Relationship="Self.FK_Workers_on_project_Workers" FromRole="Workers" ToRole="Workers_on_project" />
+  </EntityType>
+  <EntityType Name="Workers_on_project">
+    <Key>
+      <PropertyRef Name="id_worker_on_project" />
+    </Key>
+    <Property Name="id_worker_on_project" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_project" Type="Int32" Nullable="false" />
+    <Property Name="id_worker" Type="Int32" Nullable="false" />
+    <Property Name="project_role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_start_participate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="date_end_participate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_Workers_on_project_Projects" FromRole="Workers_on_project" ToRole="Projects" />
+    <NavigationProperty Name="Worker" Relationship="Self.FK_Workers_on_project_Workers" FromRole="Workers_on_project" ToRole="Workers" />
+  </EntityType>
+  <Association Name="FK_Application_for_vacation_Classification_vacation">
+    <End Role="Classification_vacation" Type="Self.Classification_vacation" Multiplicity="1" />
+    <End Role="Application_for_vacation" Type="Self.Application_for_vacation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classification_vacation">
+        <PropertyRef Name="id_classification_vacation" />
+      </Principal>
+      <Dependent Role="Application_for_vacation">
+        <PropertyRef Name="id_classification_vacation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_for_vacation_Workers">
+    <End Role="Workers" Type="Self.Worker" Multiplicity="1" />
+    <End Role="Application_for_vacation" Type="Self.Application_for_vacation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="id_worker" />
+      </Principal>
+      <Dependent Role="Application_for_vacation">
+        <PropertyRef Name="id_worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vacations_Application_for_vacation">
+    <End Role="Application_for_vacation" Type="Self.Application_for_vacation" Multiplicity="1" />
+    <End Role="Vacations" Type="Self.Vacation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application_for_vacation">
+        <PropertyRef Name="id_application" />
+      </Principal>
+      <Dependent Role="Vacations">
+        <PropertyRef Name="id_application" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="id_department" />
+      </Principal>
+      <Dependent Role="Workers">
+        <PropertyRef Name="department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_gender">
+    <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+    <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="id_gender" />
+      </Principal>
+      <Dependent Role="Workers">
+        <PropertyRef Name="gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_log_pass_Workers">
+    <End Role="Workers" Type="Self.Worker" Multiplicity="1" />
+    <End Role="log_pass" Type="Self.log_pass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="id_worker" />
+      </Principal>
+      <Dependent Role="log_pass">
+        <PropertyRef Name="id_worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_Posts">
+    <End Role="Posts" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="id_post" />
+      </Principal>
+      <Dependent Role="Workers">
+        <PropertyRef Name="post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_on_project_Projects">
+    <End Role="Projects" Type="Self.Project" Multiplicity="1" />
+    <End Role="Workers_on_project" Type="Self.Workers_on_project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="id_project" />
+      </Principal>
+      <Dependent Role="Workers_on_project">
+        <PropertyRef Name="id_project" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_on_project_Workers">
+    <End Role="Workers" Type="Self.Worker" Multiplicity="1" />
+    <End Role="Workers_on_project" Type="Self.Workers_on_project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="id_worker" />
+      </Principal>
+      <Dependent Role="Workers_on_project">
+        <PropertyRef Name="id_worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="course_workEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Application_for_vacation" EntityType="Self.Application_for_vacation" />
+    <EntitySet Name="Classification_vacation" EntityType="Self.Classification_vacation" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="genders" EntityType="Self.gender" />
+    <EntitySet Name="log_pass" EntityType="Self.log_pass" />
+    <EntitySet Name="Posts" EntityType="Self.Post" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Vacations" EntityType="Self.Vacation" />
+    <EntitySet Name="Workers" EntityType="Self.Worker" />
+    <EntitySet Name="Workers_on_project" EntityType="Self.Workers_on_project" />
+    <AssociationSet Name="FK_Application_for_vacation_Classification_vacation" Association="Self.FK_Application_for_vacation_Classification_vacation">
+      <End Role="Classification_vacation" EntitySet="Classification_vacation" />
+      <End Role="Application_for_vacation" EntitySet="Application_for_vacation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_for_vacation_Workers" Association="Self.FK_Application_for_vacation_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Application_for_vacation" EntitySet="Application_for_vacation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vacations_Application_for_vacation" Association="Self.FK_Vacations_Application_for_vacation">
+      <End Role="Application_for_vacation" EntitySet="Application_for_vacation" />
+      <End Role="Vacations" EntitySet="Vacations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_Department" Association="Self.FK_Workers_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_gender" Association="Self.FK_Workers_gender">
+      <End Role="gender" EntitySet="genders" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_log_pass_Workers" Association="Self.FK_log_pass_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="log_pass" EntitySet="log_pass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_Posts" Association="Self.FK_Workers_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_on_project_Projects" Association="Self.FK_Workers_on_project_Projects">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Workers_on_project" EntitySet="Workers_on_project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_on_project_Workers" Association="Self.FK_Workers_on_project_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="Workers_on_project" EntitySet="Workers_on_project" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

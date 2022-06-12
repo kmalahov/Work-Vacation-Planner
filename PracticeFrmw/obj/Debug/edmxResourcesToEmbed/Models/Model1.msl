@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище course_workModelContainer" CdmEntityContainer="course_workEntities">
+    <EntitySetMapping Name="Application_for_vacation">
+      <EntityTypeMapping TypeName="course_workModel.Application_for_vacation">
+        <MappingFragment StoreEntitySet="Application_for_vacation">
+          <ScalarProperty Name="id_application" ColumnName="id_application" />
+          <ScalarProperty Name="date_begin_vacation" ColumnName="date_begin_vacation" />
+          <ScalarProperty Name="vacation_count" ColumnName="vacation_count" />
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="status_application" ColumnName="status_application" />
+          <ScalarProperty Name="id_classification_vacation" ColumnName="id_classification_vacation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classification_vacation">
+      <EntityTypeMapping TypeName="course_workModel.Classification_vacation">
+        <MappingFragment StoreEntitySet="Classification_vacation">
+          <ScalarProperty Name="id_classification_vacation" ColumnName="id_classification_vacation" />
+          <ScalarProperty Name="code_classification" ColumnName="code_classification" />
+          <ScalarProperty Name="name_classification" ColumnName="name_classification" />
+          <ScalarProperty Name="period_vacation" ColumnName="period_vacation" />
+          <ScalarProperty Name="usage_count" ColumnName="usage_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="course_workModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="id_department" ColumnName="id_department" />
+          <ScalarProperty Name="department1" ColumnName="department" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genders">
+      <EntityTypeMapping TypeName="course_workModel.gender">
+        <MappingFragment StoreEntitySet="gender">
+          <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+          <ScalarProperty Name="gender_name" ColumnName="gender_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="log_pass">
+      <EntityTypeMapping TypeName="course_workModel.log_pass">
+        <MappingFragment StoreEntitySet="log_pass">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="course_workModel.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="id_post" ColumnName="id_post" />
+          <ScalarProperty Name="post1" ColumnName="post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="course_workModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="id_project" ColumnName="id_project" />
+          <ScalarProperty Name="project_name" ColumnName="project_name" />
+          <ScalarProperty Name="date_project_begin" ColumnName="date_project_begin" />
+          <ScalarProperty Name="date_project_end" ColumnName="date_project_end" />
+          <ScalarProperty Name="labor_count" ColumnName="labor_count" />
+          <ScalarProperty Name="date_project_status" ColumnName="date_project_status" />
+          <ScalarProperty Name="project_manager" ColumnName="project_manager" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="course_workModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacations">
+      <EntityTypeMapping TypeName="course_workModel.Vacation">
+        <MappingFragment StoreEntitySet="Vacations">
+          <ScalarProperty Name="id_vacation" ColumnName="id_vacation" />
+          <ScalarProperty Name="id_application" ColumnName="id_application" />
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="data_vacation_real" ColumnName="data_vacation_real" />
+          <ScalarProperty Name="vacation_count_real" ColumnName="vacation_count_real" />
+          <ScalarProperty Name="id_classification_vacation" ColumnName="id_classification_vacation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="course_workModel.Worker">
+        <MappingFragment StoreEntitySet="Workers">
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="service_number" ColumnName="service_number" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="date_hiring" ColumnName="date_hiring" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="department" ColumnName="department" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers_on_project">
+      <EntityTypeMapping TypeName="course_workModel.Workers_on_project">
+        <MappingFragment StoreEntitySet="Workers_on_project">
+          <ScalarProperty Name="id_worker_on_project" ColumnName="id_worker_on_project" />
+          <ScalarProperty Name="id_project" ColumnName="id_project" />
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="project_role" ColumnName="project_role" />
+          <ScalarProperty Name="date_start_participate" ColumnName="date_start_participate" />
+          <ScalarProperty Name="date_end_participate" ColumnName="date_end_participate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

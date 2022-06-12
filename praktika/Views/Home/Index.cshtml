@@ -1,0 +1,24 @@
+﻿@model IEnumerable<praktika.Models.Worker>
+@{
+    ViewBag.Title = "Главная";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать в планировщик отпусков</h1><br/><br/><br/>
+    <button type="button" class="btn btn-outline-success btn-lg"><a asp-action="CreateApplication">Подать заявку на отпуск</a></button>
+    <button type="button" class="btn btn-outline-success btn-lg"><a asp-action="ViewingVacations">Просмотреть другие отпуска</a></button>
+</div>
+
+
+
+
+@*<a asp-action="Create">Добавить сотрудника</a>
+<table class="table">
+    <tr><td>Имя</td><td>Фамилия</td><td>Отчество</td><td>Табельный номер</td><td>Должность</td><td>Отдел</td>
+        <td>email</td><td>Номер телефона</td><td>Дата приема на работу</td><td>Пол</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Name</td><td>@item.Surname</td><td>@item.Patronymic</td><td>@item.ServiceNumber</td><td>@item.Post</td>
+            <td>@item.Department</td><td>@item.Email</td><td>@item.Phone</td><td>@item.DateHiring</td><td>@item.Gender</td></tr>
+    }
+</table>*@
