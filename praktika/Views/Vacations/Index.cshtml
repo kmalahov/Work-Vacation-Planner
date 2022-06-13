@@ -6,9 +6,13 @@
 
 <h1 text align="center">Отпуска</h1><br/>
 
-<p>
-    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить сотрудника" >+</a>
-</p>
+@if (Role.role.Admin == 1)
+{
+    <p>
+    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить отпуск" >+</a>
+    </p>
+}
+
 
 <table class="table">
     <thead>

@@ -41,6 +41,7 @@ namespace praktika.Controllers
             }
 
             LogPass logPass = await _context.LogPasses.FirstOrDefaultAsync(l => l.Login == model.Login && l.Password == model.Password);
+            Role.role = logPass; 
             if (logPass != null)
             {
 
@@ -94,6 +95,7 @@ namespace praktika.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             LogIn = false;
+            Role.role = null;
             return RedirectToAction("Login", "LogPasses");
         }
 

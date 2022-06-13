@@ -20,8 +20,9 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         @if (LogPassesController.LogIn == false)
-                        {
-                            <li class="nav-item">
+                        {                           
+                            
+                                <li class="nav-item">
                                 <a class="nav-link text-dark disabled" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>                            
                             </li>
                             <li class="nav-item">
@@ -45,27 +46,42 @@
                         }
                         else 
                         {
-                            <li class="nav-item">
+                            if(Role.role.Admin == 1)
+                            {
+                                <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>                            
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="ApplicationForVacations" asp-action="Index">Заявка на отпуск</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Vacations" asp-action="Index">Запланированные отпуска</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Администрирование</a>
-                                <div class="dropdown-menu">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Workers" asp-action="Index">Список сотрудников</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="LogPasses" asp-action="Index">Пароли сотрудников</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Departments" asp-action="Index">Отделы</a>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="Index">Должности</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" asp-area="" asp-controller="ClassificationVacations" asp-action="Index">Классификатор отпусков</a>
-                                </div>
-                            </li>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ApplicationForVacations" asp-action="Index">Заявка на отпуск</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Vacations" asp-action="Index">Запланированные отпуска</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Администрирование</a>
+                                    <div class="dropdown-menu">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Workers" asp-action="Index">Список сотрудников</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="LogPasses" asp-action="Index">Пароли сотрудников</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Departments" asp-action="Index">Отделы</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Posts" asp-action="Index">Должности</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" asp-area="" asp-controller="ClassificationVacations" asp-action="Index">Классификатор отпусков</a>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>                            
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ApplicationForVacations" asp-action="Index">Заявка на отпуск</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Vacations" asp-action="Index">Запланированные отпуска</a>
+                                </li>
+                            }                            
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="LogPasses" asp-action="Logout">Выйти</a>
                             </li>
@@ -83,7 +99,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Practice by Малахов Константин Андреевич ПИ-20-3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Исходный код</a>
+            &copy; 2022 - Practice by Малахов Константин Андреевич ПИ-20-3 - <a href="https://github.com/kmalahov/Work-Vacation-Planner/tree/main/praktika">Исходный код</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
