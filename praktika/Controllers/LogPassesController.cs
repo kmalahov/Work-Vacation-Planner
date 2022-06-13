@@ -93,7 +93,8 @@ namespace praktika.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Account");
+            LogIn = false;
+            return RedirectToAction("Login", "LogPasses");
         }
 
         // GET: LogPasses

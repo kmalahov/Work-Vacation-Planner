@@ -7789,11 +7789,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\malah\\source\\repos\\praktika\\praktika.csproj",
+      "projectUniqueName": "C:\\Users\\malah\\Documents\\GitHub\\Work-Vacation-Planner\\praktika\\praktika.csproj",
       "projectName": "praktika",
-      "projectPath": "C:\\Users\\malah\\source\\repos\\praktika\\praktika.csproj",
+      "projectPath": "C:\\Users\\malah\\Documents\\GitHub\\Work-Vacation-Planner\\praktika\\praktika.csproj",
       "packagesPath": "C:\\Users\\malah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\malah\\source\\repos\\praktika\\obj\\",
+      "outputPath": "C:\\Users\\malah\\Documents\\GitHub\\Work-Vacation-Planner\\praktika\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

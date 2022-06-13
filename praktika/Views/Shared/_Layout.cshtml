@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-gray border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Vacation planner</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Планирование отпусков</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,8 +30,8 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark disabled" asp-area="" asp-controller="Vacations" asp-action="Index">Запланированные отпуска</a>
                             </li>
-                            <li class="nav-item dropdown     disabled">
-                                <a class="nav-link dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false">Администрирование</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle disabled" data-toggle="dropdown" role="button" aria-expanded="false">Администрирование</a>
                                 <div class="dropdown-menu">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Workers" asp-action="Index">Список сотрудников</a>
                                     <a class="nav-link text-dark" asp-area="" asp-controller="LogPasses" asp-action="Index">Пароли сотрудников</a>
@@ -41,9 +41,6 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" asp-area="" asp-controller="ClassificationVacations" asp-action="Index">Классификатор отпусков</a>
                                 </div>
-                            </li>                        
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
                         }
                         else 
@@ -68,9 +65,9 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" asp-area="" asp-controller="ClassificationVacations" asp-action="Index">Классификатор отпусков</a>
                                 </div>
-                            </li>                        
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="LogPasses" asp-action="Logout">Выйти</a>
                             </li>
                         }
                     </ul>
