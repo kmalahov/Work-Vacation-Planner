@@ -58,23 +58,6 @@ namespace praktika.Controllers
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
-
-            //if (ModelState.IsValid)
-            //{
-            //    LogPass logPass = await _context.LogPasses.FirstOrDefaultAsync(l => l.Login == model.Login && l.Password == model.Password);
-            //    if (logPass != null)
-            //    {
-            //        Worker worker = await _context.Workers.FirstOrDefaultAsync(w => w.IdWorker == logPass.UserId);
-
-            //        if (model != null)
-            //        {
-            //            await Authenticate(model.Login); // аутентификация
-
-            //            return RedirectToAction("Index", "Home");
-            //        }
-            //        ModelState.AddModelError("", "Некорректные логин и(или) пароль");
-            //    }                
-            //}
             return View(model);
         }
 
