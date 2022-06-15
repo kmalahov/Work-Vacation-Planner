@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +19,35 @@ namespace praktika.Controllers
         public PostsController(course_workContext context)
         {
             _context = context;
+        }
+
+        public FileResult Export()  //экспорт отчета
+        {
+            //var databaseconfigContext = _context.Posts.Include(r => r.AmountMemoryRamNavigation).Include(r => r.NumbersModulesRamNavigation).Include(r => r.TypeMemoryRamNavigation);
+            course_workContext entities = new course_workContext();
+            DataTable dt = new DataTable("Posts");
+            dt.Columns.AddRange(new DataColumn[2] { new DataColumn("id должности "),
+                                            new DataColumn("Название должности"),});
+
+
+
+            var customers = from customer in entities.Posts.Take(10)
+                            select customer;
+
+            foreach (var customer in customers)
+            {
+                dt.Rows.Add(customer.IdPost, customer.Post1);
+            }
+
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Posts.xlsx");
+                }
+            }
         }
 
         // GET: Posts

@@ -404,3 +404,7 @@ C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\
 C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\praktika.pdb
 C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\praktika.genruntimeconfig.cache
 C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\ref\praktika.dll
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\ClosedXML.dll
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\ExcelNumberFormat.dll
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\System.IO.Packaging.dll

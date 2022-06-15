@@ -26,13 +26,13 @@ namespace praktika.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string Search)
+        public async Task<IActionResult> Index(string Search) //реализация поиска
         {
             var databaseconfigContext = _context.Workers;
 
             if (Search != null)
             {
-                var result = databaseconfigContext.ToList().Where(x => x.Name.Contains(Search));
+                var result = databaseconfigContext.ToList().Where(x => x.Name.Contains(Search) || x.Surname.Contains(Search));
                 return View(result);
             }
             return View(await _context.Workers.ToListAsync());

@@ -6,6 +6,14 @@
 
 <h1 text align="center">Должности</h1><br />
 
+<div align="left">
+
+    @using(Html.BeginForm("Export", "Posts", FormMethod.Post))
+{
+<input type="submit" value="Отчет" />
+}
+</div>
+
 <p>
     <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить должность" >+</a>
 </p>
@@ -27,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.Post1)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdPost">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdPost">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdPost">Delete</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Posts/Edit/@item.IdPost">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Posts/Details/@item.IdPost">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Posts/Delete/@item.IdPost">Удалить</a>
             </td>
         </tr>
 }

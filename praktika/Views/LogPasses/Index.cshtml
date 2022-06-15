@@ -48,6 +48,9 @@
                 <a asp-action="Edit" asp-route-id="@item.UserId">Изменить</a> |
                 <a asp-action="Details" asp-route-id="@item.UserId">Детали</a> |
                 <a asp-action="Delete" asp-route-id="@item.UserId">Удалить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/LogPass/Edit/@item.UserId">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/LogPass/Details/@item.UserId">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/LogPass/Delete/@item.UserId">Удалить</a>
             </td>
         </tr>
 }
