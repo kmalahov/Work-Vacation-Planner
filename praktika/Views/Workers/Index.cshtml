@@ -105,9 +105,13 @@
                 @Html.DisplayFor(modelItem => item.PostNavigation.Post1)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdWorker">Изменить</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.IdWorker">Изменить</a> |
                 <a asp-action="Details" asp-route-id="@item.IdWorker">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdWorker">Уволен</a>
+                <a asp-action="Delete" asp-route-id="@item.IdWorker">Уволен</a>*@
+
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Workers/Edit/@item.IdWorker">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Workers/Details/@item.IdWorker">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Workers/Delete/@item.IdWorker">Удалить</a>
             </td>
         </tr>
 }

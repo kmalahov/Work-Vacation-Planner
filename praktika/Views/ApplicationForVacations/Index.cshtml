@@ -90,9 +90,13 @@ else
                 @Html.DisplayFor(modelItem => item.IdWorkerNavigation.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdApplication">Изменить</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.IdApplication">Изменить</a> |
                 <a asp-action="Details" asp-route-id="@item.IdApplication">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdApplication">Удалить</a>
+                <a asp-action="Delete" asp-route-id="@item.IdApplication">Удалить</a>*@
+
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations/Edit/@item.IdApplication">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations/Details/@item.IdApplication">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations/Delete/@item.IdApplication">Удалить</a>
             </td>
         </tr>}
     </tbody>

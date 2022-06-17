@@ -43,9 +43,13 @@
                 @Html.DisplayFor(modelItem => item.UsageCount)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdClassificationVacation">Edit</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.IdClassificationVacation">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.IdClassificationVacation">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdClassificationVacation">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.IdClassificationVacation">Delete</a>*@
+
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ClassificationVacations/Edit/@item.IdClassificationVacation">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ClassificationVacations/Details/@item.IdClassificationVacation">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ClassificationVacations/Delete/@item.IdClassificationVacation">Удалить</a>
             </td>
         </tr>
 }

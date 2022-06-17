@@ -55,9 +55,13 @@
                 @Html.DisplayFor(modelItem => item.IdApplicationNavigation.IdApplication)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdVacation">Изменить</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.IdVacation">Изменить</a> |
                 <a asp-action="Details" asp-route-id="@item.IdVacation">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdVacation">Удалить</a>
+                <a asp-action="Delete" asp-route-id="@item.IdVacation">Удалить</a>*@
+
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Vacations/Edit/@item.IdVacation">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Vacations/Details/@item.IdVacation">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Vacations/Delete/@item.IdVacation">Удалить</a>
             </td>
         </tr>
 }

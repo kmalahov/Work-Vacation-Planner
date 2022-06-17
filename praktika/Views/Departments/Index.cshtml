@@ -26,9 +26,13 @@
                 @Html.DisplayFor(modelItem => item.Department1)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdDepartment">Изменить</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.IdDepartment">Изменить</a> |
                 <a asp-action="Details" asp-route-id="@item.IdDepartment">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdDepartment">Удалить</a>
+                <a asp-action="Delete" asp-route-id="@item.IdDepartment">Удалить</a>*@
+
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Departments/Edit/@item.IdDepartment">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Departments/Details/@item.IdDepartment">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/Departments/Delete/@item.IdDepartment">Удалить</a>
             </td>
         </tr>
 }
