@@ -14,13 +14,12 @@
 
 @if (Role.role.Admin == 1)
 {  
-
     <table class="table">
         <thead>
         <tr>
           <th scope="col">@Html.DisplayNameFor(model => model.DateBeginVacation)</th>
           <th scope="col">@Html.DisplayNameFor(model => model.VacationCount)</th>
-          <th scope="col">@Html.DisplayNameFor(model => model.StatusApplication)</th>          
+          <th scope="col">@Html.DisplayNameFor(model => model.IdStatusApplication)</th>          
           @*<th scope="col">@Html.DisplayNameFor(model => model.IdClassificationVacationNavigation)</th>*@
           <th scope="col">Вид отпуска</th>
           @*<th scope="col">@Html.DisplayNameFor(model => model.IdWorkerNavigation)</th>*@
@@ -38,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.VacationCount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StatusApplication)
+                @Html.DisplayFor(modelItem => item.IdStatusApplicationNavigation.NameStatusClassification)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdClassificationVacationNavigation.NameClassification)
@@ -47,9 +46,9 @@
                 @Html.DisplayFor(modelItem => item.IdWorkerNavigation.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdApplication">Изменить</a> |
-                <a asp-action="Details" asp-route-id="@item.IdApplication">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdApplication">Удалить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations1/Edit/@item.IdApplication">Изменить</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations/Details/@item.IdApplication">Детали</a>
+                <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations/Delete/@item.IdApplication">Удалить</a>
             </td>
         </tr>}
     </tbody>
@@ -63,7 +62,7 @@ else
         <tr>
           <th scope="col">@Html.DisplayNameFor(model => model.DateBeginVacation)</th>
           <th scope="col">@Html.DisplayNameFor(model => model.VacationCount)</th>
-          <th scope="col">@Html.DisplayNameFor(model => model.StatusApplication)</th>          
+          <th scope="col">@Html.DisplayNameFor(model => model.IdStatusApplication)</th>          
           @*<th scope="col">@Html.DisplayNameFor(model => model.IdClassificationVacationNavigation)</th>*@
           <th scope="col">Вид отпуска</th>
           @*<th scope="col">@Html.DisplayNameFor(model => model.IdWorkerNavigation)</th>*@
@@ -81,7 +80,7 @@ else
                 @Html.DisplayFor(modelItem => item.VacationCount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StatusApplication)
+                @Html.DisplayFor(modelItem => item.IdStatusApplication)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdClassificationVacationNavigation.NameClassification)

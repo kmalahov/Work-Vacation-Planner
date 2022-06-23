@@ -6,6 +6,14 @@
 <div>
 <h1 align="center">Список сотрудников</h1><br />
 
+<div align="left">
+
+    @using(Html.BeginForm("Export", "Workers", FormMethod.Post))
+{
+<input type="submit" value="Отчет" />
+}
+</div>
+
 <div align="right">
     <form asp-controller = "Workers" asp-action = "Index" method = "post">
     <table>

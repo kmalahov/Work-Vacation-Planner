@@ -24,6 +24,7 @@ namespace praktika.Models
         public virtual DbSet<LogPass> LogPasses { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<StatusApplication> StatusApplications { get; set; }
         public virtual DbSet<Vacation> Vacations { get; set; }
         public virtual DbSet<Worker> Workers { get; set; }
         public virtual DbSet<WorkersOnProject> WorkersOnProjects { get; set; }
@@ -56,9 +57,9 @@ namespace praktika.Models
 
                 entity.Property(e => e.IdClassificationVacation).HasColumnName("id_classification_vacation");
 
-                entity.Property(e => e.IdWorker).HasColumnName("id_worker");
+                entity.Property(e => e.IdStatusApplication).HasColumnName("id_status_application");
 
-                entity.Property(e => e.StatusApplication).HasColumnName("status_application");
+                entity.Property(e => e.IdWorker).HasColumnName("id_worker");
 
                 entity.Property(e => e.VacationCount).HasColumnName("vacation_count");
 
@@ -67,6 +68,12 @@ namespace praktika.Models
                     .HasForeignKey(d => d.IdClassificationVacation)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Application_for_vacation_Classification_vacation");
+
+                entity.HasOne(d => d.IdStatusApplicationNavigation)
+                    .WithMany(p => p.ApplicationForVacations)
+                    .HasForeignKey(d => d.IdStatusApplication)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Application_for_vacation_status_application");
 
                 entity.HasOne(d => d.IdWorkerNavigation)
                     .WithMany(p => p.ApplicationForVacations)
@@ -199,6 +206,21 @@ namespace praktika.Models
                     .IsRequired()
                     .HasMaxLength(20)
                     .HasColumnName("project_name")
+                    .IsFixedLength(true);
+            });
+
+            modelBuilder.Entity<StatusApplication>(entity =>
+            {
+                entity.HasKey(e => e.IdStatusApplication);
+
+                entity.ToTable("status_application");
+
+                entity.Property(e => e.IdStatusApplication).HasColumnName("id_status_application");
+
+                entity.Property(e => e.NameStatusClassification)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("name_status_classification")
                     .IsFixedLength(true);
             });
 

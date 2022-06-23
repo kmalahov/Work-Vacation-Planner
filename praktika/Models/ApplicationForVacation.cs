@@ -26,19 +26,20 @@ namespace praktika.Models
         [Display(Name = "Количество дней отпуска")]
         public int VacationCount { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Работник")]
         public int IdWorker { get; set; }
 
         [Required]
         [Display(Name = "Статус заявки")]
-        public int StatusApplication { get; set; }
+        public int IdStatusApplication { get; set; }
 
         [Required]
         [Display(Name = "Вид отпуска")]
         public int IdClassificationVacation { get; set; }
 
         public virtual ClassificationVacation IdClassificationVacationNavigation { get; set; }
+        public virtual StatusApplication IdStatusApplicationNavigation { get; set; }
         public virtual Worker IdWorkerNavigation { get; set; }
         public virtual ICollection<Vacation> Vacations { get; set; }
     }

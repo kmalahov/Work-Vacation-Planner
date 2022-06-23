@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +19,44 @@ namespace praktika.Controllers
         public WorkersController(course_workContext context)
         {
             _context = context;
+        }
+
+        public FileResult Export()  //экспорт отчета
+        {
+            //var databaseconfigContext = _context.Posts.Include(r => r.AmountMemoryRamNavigation).Include(r => r.NumbersModulesRamNavigation).Include(r => r.TypeMemoryRamNavigation);
+            course_workContext entities = new course_workContext();
+            DataTable dt = new DataTable("Workers");
+            dt.Columns.AddRange(new DataColumn[10] { new DataColumn("Фамилия "),
+                                            new DataColumn("Имя"),
+                                            new DataColumn("Отчество"),
+                                            new DataColumn("Табельный номер"),
+                                            new DataColumn("Email"),
+                                            new DataColumn("Номер телефона"),
+                                            new DataColumn("Дата трудоустройства"),
+                                            new DataColumn("Отдел"),
+                                            new DataColumn("Пол"),
+                                            new DataColumn("Должность")});
+
+
+
+            var customers = from customer in entities.Workers.Take(10)
+                            select customer;
+
+            foreach (var customer in customers)
+            {
+                dt.Rows.Add(customer.Name, customer.Surname, customer.Patronymic, customer.ServiceNumber, customer.Email, 
+                    customer.Phone, customer.DateHiring, customer.Department, customer.Post, customer.Gender);
+            }
+
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Workers.xlsx");
+                }
+            }
         }
 
         // GET: Workers

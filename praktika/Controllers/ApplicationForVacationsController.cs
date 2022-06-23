@@ -28,6 +28,7 @@ namespace praktika.Controllers
         // GET: ApplicationForVacations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -48,7 +49,8 @@ namespace praktika.Controllers
         // GET: ApplicationForVacations/Create
         public IActionResult Create()
         {
-            ViewData["IdClassificationVacation"] = new SelectList(_context.ClassificationVacations, "IdClassificationVacation", "CodeClassification");
+            ViewData["IdStatusApplication"] = new SelectList(_context.StatusApplications, "IdStatusApplication", "NameStatusClassification");
+            ViewData["IdClassificationVacation"] = new SelectList(_context.ClassificationVacations, "IdClassificationVacation", "NameClassification");
             ViewData["IdWorker"] = new SelectList(_context.Workers, "IdWorker", "Name");
             return View();
         }
@@ -58,7 +60,7 @@ namespace praktika.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdApplication,DateBeginVacation,VacationCount,IdWorker,StatusApplication,IdClassificationVacation")] ApplicationForVacation applicationForVacation)
+        public async Task<IActionResult> Create([Bind("IdApplication,DateBeginVacation,VacationCount,IdWorker,IdStatusApplication,IdClassificationVacation")] ApplicationForVacation applicationForVacation)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +68,7 @@ namespace praktika.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdStatusApplication"] = new SelectList(_context.StatusApplications, "IdStatusApplication", "IdStatusApplication", applicationForVacation.IdStatusApplicationNavigation);
             ViewData["IdClassificationVacation"] = new SelectList(_context.ClassificationVacations, "IdClassificationVacation", "CodeClassification", applicationForVacation.IdClassificationVacation);
             ViewData["IdWorker"] = new SelectList(_context.Workers, "IdWorker", "Name", applicationForVacation.IdWorker);
             return View(applicationForVacation);
@@ -84,7 +87,8 @@ namespace praktika.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdClassificationVacation"] = new SelectList(_context.ClassificationVacations, "IdClassificationVacation", "CodeClassification", applicationForVacation.IdClassificationVacation);
+            ViewData["IdStatusApplication"] = new SelectList(_context.StatusApplications, "IdStatusApplication", "NameStatusClassification");
+            ViewData["IdClassificationVacation"] = new SelectList(_context.ClassificationVacations, "IdClassificationVacation", "NameClassification", applicationForVacation.IdClassificationVacation);
             ViewData["IdWorker"] = new SelectList(_context.Workers, "IdWorker", "Name", applicationForVacation.IdWorker);
             return View(applicationForVacation);
         }
@@ -121,6 +125,7 @@ namespace praktika.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdStatusApplication"] = new SelectList(_context.StatusApplications, "IdStatusApplication", "NameStatusClassification", applicationForVacation.IdStatusApplication);
             ViewData["IdClassificationVacation"] = new SelectList(_context.ClassificationVacations, "IdClassificationVacation", "CodeClassification", applicationForVacation.IdClassificationVacation);
             ViewData["IdWorker"] = new SelectList(_context.Workers, "IdWorker", "Name", applicationForVacation.IdWorker);
             return View(applicationForVacation);

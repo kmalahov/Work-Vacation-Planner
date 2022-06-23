@@ -1,0 +1,129 @@
+﻿@using System.Linq;
+@model IEnumerable<praktika.Models.ApplicationForVacation>
+
+@{
+    ViewData["Title"] = "Заявки на отпуск";
+}
+
+<h1 text align="center">Заявки на отпуск</h1><br/>
+
+<div align="left">
+
+    @using(Html.BeginForm("Export", "ApplicationForVacations", FormMethod.Post))
+{
+<input type="submit" value="Отчет" />
+}
+</div>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<p>
+    <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Создать заявку" >+</a>
+    </p>
+    @if (Role.role.Admin == 1)
+{
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateBeginVacation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VacationCount)
+                </th>
+                <th scope="col">Вид отпуска
+                    @*@Html.DisplayNameFor(model => model.IdClassificationVacationNavigation.NameClassification)*@
+
+                </th>
+                <th scope="col">Статус заявки
+                    @*@Html.DisplayNameFor(model => model.IdStatusApplicationNavigation)*@
+                </th>
+                <th scope="col">Имя сотрудника
+                    @*@Html.DisplayNameFor(model => model.IdWorkerNavigation.Name)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateBeginVacation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VacationCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdClassificationVacationNavigation.NameClassification)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdStatusApplicationNavigation.NameStatusClassification)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdWorkerNavigation.Name)
+                    </td>
+                    <td>
+                        <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations1/Edit/@item.IdApplication">Изменить</a>
+                        <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations1/Details/@item.IdApplication">Детали</a>
+                        <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations1/Delete/@item.IdApplication">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateBeginVacation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VacationCount)
+                </th>
+                <th scope="col">Вид отпуска
+                    @*@Html.DisplayNameFor(model => model.IdClassificationVacationNavigation.NameClassification)*@
+
+                </th>
+                <th scope="col">Статус заявки
+                    @*@Html.DisplayNameFor(model => model.IdStatusApplicationNavigation)*@
+                </th>
+                <th scope="col">Имя сотрудника
+                    @*@Html.DisplayNameFor(model => model.IdWorkerNavigation.Name)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ToList().Where(x => x.IdWorker == Role.role.IdWorker))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateBeginVacation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VacationCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdClassificationVacationNavigation.NameClassification)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdStatusApplicationNavigation.NameStatusClassification)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdWorkerNavigation.Name)
+                    </td>
+                    <td>
+                        <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations1/Edit/@item.IdApplication">Изменить</a>
+                        <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations1/Details/@item.IdApplication">Детали</a>
+                        <a class="btn" style="color: #000000; background-color: #AFEEEE; " role="button" href="~/ApplicationForVacations1/Delete/@item.IdApplication">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

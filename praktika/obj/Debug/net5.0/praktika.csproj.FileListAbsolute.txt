@@ -408,3 +408,8 @@ C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\
 C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
 C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\ExcelNumberFormat.dll
 C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\bin\Debug\net5.0\System.IO.Packaging.dll
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\Razor\Views\ApplicationForVacations1\Create.cshtml.g.cs
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\Razor\Views\ApplicationForVacations1\Delete.cshtml.g.cs
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\Razor\Views\ApplicationForVacations1\Details.cshtml.g.cs
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\Razor\Views\ApplicationForVacations1\Edit.cshtml.g.cs
+C:\Users\malah\Documents\GitHub\Work-Vacation-Planner\praktika\obj\Debug\net5.0\Razor\Views\ApplicationForVacations1\Index.cshtml.g.cs

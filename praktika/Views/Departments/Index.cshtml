@@ -6,12 +6,20 @@
 
 <h1 text align="center">Отделы</h1><br />
 
+<div align="left">
+
+    @using(Html.BeginForm("Export", "Departments", FormMethod.Post))
+{
+<input type="submit" value="Отчет" />
+}
+</div>
+
 <p>
     <a href="Create" class="btn btn-light btn-lg btn-block" data-toggle="tooltip" data-placement="top" title="Добавить отдел" >+</a>
 </p>
 
-<table class="table">
-    <thead>
+<table class="table" align="">
+    <thead class="thead-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Department1)

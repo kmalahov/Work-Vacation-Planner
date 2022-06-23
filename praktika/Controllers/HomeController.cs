@@ -35,7 +35,7 @@ namespace praktika.Controllers
         public IActionResult CreateApplication()
         {
             //return View();
-            return RedirectToAction("Create", "ApplicationForVacations");
+            return RedirectToAction("Create", "ApplicationForVacations1");
         }
 
         public IActionResult ViewingVacations()
